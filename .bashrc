@@ -39,19 +39,22 @@ alias la='ls -A'
 alias l='ls -CF'
 
 export LANG="en_US.UTF-8"
-if [ ! -d $HOME/virtualenvs ]; then
-  mkdir $HOME/virtualenvs;
+if [ ! -d $HOME/../virtualenvs ]; then
+  mkdir $HOME/../virtualenvs;
 fi
-export WORKON_HOME=$HOME/virtualenvs
-if [ ! -d $HOME/projects ]; then
-  mkdir $HOME/projects;
+export WORKON_HOME=$HOME/../virtualenvs
+if [ ! -d $HOME/../projects ]; then
+  mkdir $HOME/../projects;
 fi
-export PROJECT_HOME=$HOME/projects
+export PROJECT_HOME=$HOME/../projects
+
 if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
   source $HOME/.local/bin/virtualenvwrapper.sh;
 fi
 
-export IRCNICK=doubtingben IRCSERVER=localhost
+if [ -f $HOME/.bashrc.local ]; then
+  source $HOME/.bashrc.local;
+fi
 
 if [ -z "$STY" ]; then
 exec screen -dR
